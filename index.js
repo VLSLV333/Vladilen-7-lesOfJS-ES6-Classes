@@ -231,3 +231,38 @@
 //     size: 100,
 //     color: "yellow"
 // })
+
+
+
+
+
+
+
+
+        //спробував сам створити клас і розширити
+
+
+
+// class Animal {
+//     constructor(value){
+//         this.name = value.name,
+//         this.age = value.age,
+//         this.color = value.color
+//     }
+// }
+
+
+//  class Cat extends Animal{
+//      constructor(vl){
+//          super(vl)
+//          this.tail = vl.tail
+
+//      }
+//  }
+
+// const cat = new Cat({
+//     name: "Leopold",
+//     age: 3,
+//     color: "white",
+//     tail: "Yep!"
+// })
