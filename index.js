@@ -15,17 +15,6 @@
 //     }
 
 
-//     voice (){
-//         console.log("I am animal!")
-//     }
-// }
-
-// const animal = new Animal ({
-//     name: "Animal",
-//     age: 5,
-//     hasTail: true
-// })
-
 
 // class Cat extends Animal {
 //     static type = "Cat"
@@ -34,6 +23,14 @@
 //         super(options)
 //         this.color = options.color
 //     }
+//     const cat = new Cat({
+//         name: "Cat",
+//         age: 7,
+//         hasTail: true,
+//         color: "black"
+//     })
+    
+
 
 //     voice(){
 //         super.voice()                       // цей рядок збереже батьківську функцію, вони будуть викликані обидві за допомогою voice()
@@ -67,55 +64,170 @@
 
 
 
-class Component {
-    constructor (selector){
-        this.sel = document.querySelector(selector)
-    }
+// class Component {
+//     constructor (selector){
+//         this.sel = document.querySelector(selector)
+//     }
 
-    hide(){
-        this.sel.style.display = "none"
-    }
+//     hide(){
+//         this.sel.style.display = "none"
+//     }
 
-    show(){
-        this.sel.style.display = "block"
-    }
-}
+//     show(){
+//         this.sel.style.display = "block"
+//     }
+// }
 
-class Box extends Component {
-    constructor (options){
-        super(options.selector)
-
-
-        this.sel.style.width = this.sel.style.height = options.size + "px"
-        this.sel.style.background = options.color 
-    }
-}
+// class Box extends Component {
+//     constructor (options){
+//         super(options.selector)
 
 
-const box1 = new Box({
-    selector: "#box1",
-    size: 100,
-    color: "red"
-})
+//         this.sel.style.width = this.sel.style.height = options.size + "px"
+//         this.sel.style.background = options.color 
+//     }
+// }
 
 
-const box2 = new Box({
-    selector: "#box2",
-    size: 200,
-    color: "blue"
-})
+// const box1 = new Box({
+//     selector: "#box1",
+//     size: 100,
+//     color: "red"
+// })
 
 
-class Circle extends Box {
-    constructor (options) {
-        super (options)
+// const box2 = new Box({
+//     selector: "#box2",
+//     size: 200,
+//     color: "blue"
+// })
 
-        this.sel.style.borderRadius = "50%"
-    }
-}
 
-const c = new Circle({
-    selector: "#circle",
-    size: 90,
-    color: "green"
-})
+// class Circle extends Box {
+//     constructor (options) {
+//         super (options)
+
+//         this.sel.style.borderRadius = "50%"
+//     }
+// }
+
+// const c = new Circle({
+//     selector: "#circle",
+//     size: 90,
+//     color: "green"
+// })
+
+
+
+// class Component {
+//     constructor (sr){
+//         this.sel = document.querySelector(sr)  // this.sel = потрібний нам HTML елемент з відповідним айді (id = "box1")
+//     }
+
+//     hide(){
+//         this.sel.style.display = "none"
+//     }
+
+//     show(){
+//         this.sel.style.display = "block"
+//     }
+// }
+
+// class Box extends Component{
+//     constructor(options){           // options тут по факту є змінною = box1, box2 і тд, тобто ключ options по факту передає в класс бокс інформацію про наші змінні(box1, box2 і тд), обираючи "this.sel" ми звертаємось до  відповідного HTML елементу за допомогою квері селектора (document.querySelector(sr))
+
+//         super(options.selector)         // в клас Компонент через метод СУПЕР нам потрібно передати лише 1 значення, це велью selector, тому ми використовуємо такий запис. Після того, як ми передали назву селектору, ми зможемо звертатись до (this.sel.style.width і тд), адже в класі Component строчка this.sel = document.querySelector(sr) зможе обрати в HTML потрібний нам об*єкт з відповідним ID ("#box1", "#box2").
+//         this.sel.style.width = this.sel.style.height = options.size + "px"
+//         this.sel.style.background = options.color
+
+//     }
+// }
+
+
+// const box1 = new Box({
+//     selector: "#box1",      // selector - ця назва ключа передається через (options.selector) в батьківський клас Component, тому якщо в майбутніх нових змінних ця назва зміниться, це пошкодить логіку і код не буде виконуватись, тому назву селектору потрібно стандартувати для всіх подальших екстендів класу
+//     // наприклад в box1, box2 назва ключа - selector, в circle назва - selector, якщо в сьоркл цю назву змінити, круг не з'явиться!
+
+
+
+//     size: 100,
+//     color: "red"
+// })
+
+// const box2 = new Box({
+//     selector: "#box2",
+//     size: 150,
+//     color: "blue"
+// })
+
+// class Circle extends Box{
+//     constructor(options){
+//         super(options)
+//         this.sel.style.borderRadius = "50%"
+//     }
+
+// }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// успішно відтворив сам
+
+
+// const circle = new Circle({
+//     selector: "#circle",
+//     size: 150,
+//     color: "green"
+// })
+
+
+// class Component {
+//     constructor (selector){
+//         this.sel = document.querySelector(selector)
+//     }
+// }
+
+// class Box extends Component{
+//     constructor (vlad){
+//         super(vlad.v)
+//         this.sel.style.width = this.sel.style.height = vlad.size + "px"
+//         this.sel.style.background = vlad.color
+//     }
+// }
+// const box1 = new Box({
+//     v: "#box1",
+//     size: 100,
+//     color: "green"
+// })
+
+// class Circle extends Box{
+//     constructor(juli){
+//         super(juli)
+//         this.sel.style.borderRadius = "50%"
+//     }
+// }
+// const ci = new Circle({
+//     v: "#circle",
+//     size: 100,
+//     color: "yellow"
+// })
